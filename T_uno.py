@@ -22,18 +22,15 @@ while True: # Validar los posible casos que el usuario puede responder.
                 elif 1 <= porcentaje_descuento <= 100:
                     total = precio_unidad * cantidad_productos
                     total_descuento = total - (total * (porcentaje_descuento / 100))
-
-                    factura = "\n".join([  # Crea una lista (join) y las une con un salto de linea
-                        "\n---------\033[1m FACTURA \033[0m----------\n",
-                        f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}",
-                        f"CANTIDAD DE PRODUCTOS: {cantidad_productos:}",
-                        f"SUBTOTAL: {total:.2f}",
-                        f"DESCUENTO: {porcentaje_descuento.__round__()}%",
-                        f"TOTAL: {total_descuento:.2f}\n"
-                    ])
-                    print(factura)
-
+                    
+                    print("\n---------\033[1m FACTURA \033[0m----------\n"),
+                    print (f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}"),
+                    print(f"CANTIDAD DE PRODUCTOS: {cantidad_productos:}"),
+                    print(f"SUBTOTAL: {total:.2f}"),
+                    print(f"DESCUENTO: {porcentaje_descuento.__round__()}%"),
+                    print(f"TOTAL: {total_descuento:.2f}\n")
                     break  # Sale del bucle de descuento después de mostrar la factura.
+
                 else:
                     print("El porcentaje de descuento debe estar entre 1% y 100%. Inténtalo nuevamente.")
                     
@@ -47,16 +44,12 @@ while True: # Validar los posible casos que el usuario puede responder.
             total = precio_unidad * cantidad_productos
             total_descuento = "No aplica" 
 
-            factura = "\n".join([
-            "\n---------\033[1m FACTURA \033[0m----------\n",
-            f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}",
-            f"CANTIDAD DE PRODUCTO: {cantidad_productos}",
-            f"SUBTOTAL: {total:.2f}",
-            f"DESCUENTO: {total_descuento}",
-            f"TOTAL: {total:.2f}\n"
-            ])
-            print(factura)
-            
+            print("\n---------\033[1m FACTURA \033[0m----------\n"),
+            print(f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}"),
+            print(f"CANTIDAD DE PRODUCTO: {cantidad_productos}"),
+            print(f"SUBTOTAL: {total:.2f}"),
+            print(f"DESCUENTO: {total_descuento}"),
+            print(f"TOTAL: {total:.2f}\n")
             break   
         
         
