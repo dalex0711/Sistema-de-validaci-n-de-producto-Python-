@@ -1,12 +1,13 @@
-
 # SISTEMAS DE VALIDACIÓN DE PRODUCTOS.
+
+import os
+
+#Ejecutando comando para limpiar la terminal con ayuda de la libreria os.
+os.system('clear') 
 
 print ("\n-------\033[1m¡BIENVENIDO A LA TIENDITA!\033[0m.------- \n")
 
 nombre_producto = input("Ingresa el nombre del producto: ")
-cantidad_productos = int(input("Ingresa cuantos productos de \033[1m{}\033[0m has adquirido: ".format(nombre_producto.capitalize())))
-
-
 while True: # Validación de precio.
     try:
         precio_unidad   = float(input("Ingresa el precio: "))
@@ -20,7 +21,18 @@ while True: # Validación de precio.
     
     break
 
-
+while True: # Validación que la cantidad de producto sea la indicada.
+    try: 
+        cantidad_productos = int(input("Ingresa cuantos productos de \033[1m{}\033[0m has adquirido: ".format(nombre_producto.capitalize())))
+        if cantidad_productos <= 0:
+            print("Ingresa un número positivo real")
+            continue
+    except ValueError:
+        print("Error: POr favor ingresa un valor valido")
+        continue
+        
+    break    
+        
 
 while True: # Validar los posible casos que el usuario puede responder.
 
@@ -37,6 +49,7 @@ while True: # Validar los posible casos que el usuario puede responder.
                     total = precio_unidad * cantidad_productos
                     total_descuento = total - (total * (porcentaje_descuento / 100))
                     
+                    os.system('clear') 
                     print("\n---------\033[1m FACTURA \033[0m----------\n"),
                     print (f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}"),
                     print(f"CANTIDAD DE PRODUCTOS: {cantidad_productos:}"),
@@ -57,7 +70,8 @@ while True: # Validar los posible casos que el usuario puede responder.
             
             total = precio_unidad * cantidad_productos
             total_descuento = "No aplica" 
-
+            
+            os.system('clear') 
             print("\n---------\033[1m FACTURA \033[0m----------\n"),
             print(f"NOMBRE DEL PRODUCTO: {nombre_producto.capitalize()}"),
             print(f"CANTIDAD DE PRODUCTO: {cantidad_productos}"),
