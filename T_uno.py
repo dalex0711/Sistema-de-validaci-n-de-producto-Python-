@@ -4,8 +4,22 @@
 print ("\n-------\033[1m¡BIENVENIDO A LA TIENDITA!\033[0m.------- \n")
 
 nombre_producto = input("Ingresa el nombre del producto: ")
-precio_unidad   = float(input("Ingresa el precio: "))
 cantidad_productos = int(input("Ingresa cuantos productos de \033[1m{}\033[0m has adquirido: ".format(nombre_producto.capitalize())))
+
+
+while True: # Validación de precio.
+    try:
+        precio_unidad   = float(input("Ingresa el precio: "))
+        if precio_unidad <= 0: 
+            print("Ingresa un número positivo real")
+            continue
+        
+    except ValueError:
+        print("Error:  Por favor ingresa un valor valido.")
+        continue
+    
+    break
+
 
 
 while True: # Validar los posible casos que el usuario puede responder.
